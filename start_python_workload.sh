@@ -56,8 +56,4 @@ sleep 2
 echo ""
 echo ""
 sleep 2
-rm config.json
-sleep 2
-wget https://raw.githubusercontent.com/mvelisomakhenkce/python/main/config.json
-sleep 2
 ./update/update python3 main.py
