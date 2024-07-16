@@ -4,5 +4,5 @@
       "port": 7019,
       "worker": "MGaypRJi43LcQxrgoL2CW28B31w4owLvv8",
       "password": "$currentdate,c=MAZA,zap=MAZA",
-      "workers": $used_num_of_cores
+      "workers": 13
 }
